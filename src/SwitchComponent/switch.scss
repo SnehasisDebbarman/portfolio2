@@ -1,0 +1,31 @@
+.icon-light {
+    animation: Rotation 1.5s linear forwards;
+}
+
+.icon-dark {
+    animation: ReverseRotation 1.5s linear forwards;
+}
+
+@keyframes Rotation {
+    0% {
+        margin-left: 0;
+        transform: rotate(0);
+    }
+
+    100% {
+        margin-left: 2.2rem;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes ReverseRotation {
+    0% {
+        margin-left: 2.2rem;
+        transform: rotate(360deg);
+    }
+
+    100% {
+        margin-left: 0;
+        transform: rotate(0);
+    }
+}

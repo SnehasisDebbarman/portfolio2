@@ -1,0 +1,91 @@
+$gameBackgroundColor: #1A2A33;
+
+$cardBackgroundColo: #1F3641;
+$player1Color: #31C3BD;
+$player2Color: #F2B137;
+$player1SecondaryColor: #118C87;
+$player2SecondaryColor: #cc8b13;
+$lightPrimaryTextColor: #A8BFC9;
+$lightSecodaryTextColor: #637A85;
+$darkTextColor: #1A2A33;
+$buttonActiveColor: #A8BFC9;
+
+body {
+    // background-color: rgb(51 65 85);s
+}
+
+header {
+
+
+    nav {
+        padding: 20px 20px;
+        position: fixed;
+        width: 100vw;
+
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+
+        }
+
+        .tabsForWeb {
+            display: flex;
+
+            @media screen and (max-width:566px) {
+                display: none;
+            }
+
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+.header-light {
+    animation: ChangeColor 2s linear forwards;
+    background-color: "#e5e5e5";
+}
+
+.header-dark {
+    animation: ChangeColor1 2s linear forwards;
+    background-color: "#262626";
+}
+
+.terminal {
+    font-family: 'Ubuntu Mono', monospace;
+    height: 50vh;
+}
+
+
+
+
+
+
+
+
+@keyframes ChangeColor {
+    0% {
+        background-color: "#262626";
+    }
+
+    100% {
+        background-color: "#e5e5e5";
+    }
+}
+
+@keyframes ChangeColor1 {
+    0% {
+        background-color: "#e5e5e5";
+    }
+
+    100% {
+        background-color: "#262626";
+    }
+}
