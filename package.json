@@ -2,8 +2,11 @@
   "name": "portfolio2",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://github.com/SnehasisDebbarman/portfolio2",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -14,6 +17,7 @@
     "@emotion/styled": "^11.10.5",
     "didyoumean": "^1.2.2",
     "framer-motion": "^7.6.4",
+    "gh-pages": "^4.0.0",
     "i18n": "^0.15.1",
     "react": "^18.2.0",
     "react-animate-on-scroll": "^2.1.5",
