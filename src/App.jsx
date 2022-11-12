@@ -6,9 +6,6 @@ import { Switch } from "@chakra-ui/react";
 import CustomSwitch from "./SwitchComponent/Switch";
 import { useColorMode } from "@chakra-ui/react";
 import didYouMean from "didyoumean";
-
-import empty from "./assets/images/SVG/empty.svg";
-import { FaBeer, FaGreaterThan } from "react-icons/fa";
 import { v4 as uuidv4 } from "uuid";
 const personalData = {
   name: "Snehasis",
@@ -17,6 +14,14 @@ const personalData = {
   hello: "hi Stranger!!",
   hi: "Hi Stranger!!",
   details: `Hi I am Snehasis and I am a UI Developer in Fyllo`,
+  company: `
+  _________________________________________________________________
+  |                                                               |
+  | Company Name: Fyllo,                          May,2021-Present|
+  | Designation: UI Developer                                     |
+  |_______________________________________________________________|
+
+  `,
   help: "",
   list: "",
 };
