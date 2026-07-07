@@ -1,38 +1,21 @@
-// 1. Create a component that consumes the `useRadio` hook
-import {
-  Radio,
-  RadioGroup,
-  useRadio,
-  HStack,
-  Box,
-  useRadioGroup,
-} from "@chakra-ui/react";
-import { useRef, useEffect } from "react";
+import { useRadio, Box, useRadioGroup } from "@chakra-ui/react";
+
 function RadioCard(props) {
   const { getInputProps, getCheckboxProps } = useRadio(props);
-
-  const input = getInputProps();
+  const input    = getInputProps();
   const checkbox = getCheckboxProps();
 
   return (
-    <Box as="label">
+    <Box as="label" margin="0 !important">
       <input {...input} />
       <Box
         {...checkbox}
         cursor="pointer"
-        _checked={{
-          bg: "teal.600",
-          color: "white",
-          borderColor: "teal.600",
-        }}
-        _focus={{
-          boxShadow: "outline",
-        }}
-        style={{
-          fontSize: "12px",
-          padding: "5px 10px",
-          borderRadius: "5px",
-        }}
+        _checked={{ bg: "#31C3BD", color: "#0e1e24", borderColor: "#31C3BD", fontWeight: "bold" }}
+        _focus={{ boxShadow: "0 0 0 2px rgba(49,195,189,0.5)" }}
+        style={{ fontSize: "11px", padding: "4px 10px", borderRadius: "4px",
+                 background: "#1a2d36", border: "1px solid #253545", color: "#a8b8c4",
+                 transition: "all 0.15s" }}
       >
         {props.children}
       </Box>
@@ -40,39 +23,26 @@ function RadioCard(props) {
   );
 }
 
-// Step 2: Use the `useRadioGroup` hook to control a group of custom radios.
-export default function CustomRadio({
-  guessList,
-  setSearchQuery,
-  setShowInput,
-  SelectRef,
-  TerminalInput,
-}) {
+export default function CustomRadio({ guessList, setSearchQuery, SelectRef }) {
   const { getRootProps, getRadioProps } = useRadioGroup({
-    name: "checkbox",
-    defaultValue: TerminalInput ?? guessList[0],
-    onChange: (data) => {
-      setSearchQuery(data);
-      setShowInput(true);
-    },
+    name: "terminal-cmd",
+    defaultValue: "",
+    onChange: (val) => setSearchQuery(val),
     ref: SelectRef,
     isFocusable: true,
-    focus: () => {},
   });
 
   const group = getRootProps();
+  const filtered = guessList.filter((c) => c !== "clear" && c !== "matrix" && c !== "secret");
 
   return (
-    <div>
-      {guessList.map((value, i) => {
-        const radio = getRadioProps({ value });
-
-        return (
-          <RadioCard key={value} {...radio}>
-            {value}
-          </RadioCard>
-        );
-      })}
+    <div {...group} className="flex flex-wrap gap-2 mt-1">
+      {filtered.map((value) => (
+        <RadioCard key={value} {...getRadioProps({ value })}>
+          {value}
+        </RadioCard>
+      ))}
     </div>
   );
 }
+

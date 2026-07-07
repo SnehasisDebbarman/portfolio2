@@ -1,92 +1,41 @@
-$gameBackgroundColor: #1A2A33;
-
-$cardBackgroundColo: #1F3641;
-$player1Color: #31C3BD;
-$player2Color: #F2B137;
-$player1SecondaryColor: #118C87;
-$player2SecondaryColor: #cc8b13;
-$lightPrimaryTextColor: #A8BFC9;
-$lightSecodaryTextColor: #637A85;
-$darkTextColor: #1A2A33;
-$buttonActiveColor: #A8BFC9;
-
-body {
-    // background-color: rgb(51 65 85);
-    overflow: hidden;
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-y: auto;
+  background-color: #0e1e24;
+  color: #a8b8c4;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
 }
 
-header {
-
-
-    nav {
-        padding: 20px 20px;
-        position: fixed;
-        width: 100vw;
-
-
-        ul {
-            list-style-type: none;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 20px;
-
-        }
-
-        .tabsForWeb {
-            display: flex;
-
-            @media screen and (max-width:566px) {
-                display: none;
-            }
-
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-        }
+/* Custom Thin Scrollbar for Terminal */
+.scrollbar-thin {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    background-color: rgba(156, 163, 175, 0.3); // Tailwind gray-400 equivalent
+    
+    &:hover {
+      background-color: rgba(156, 163, 175, 0.5);
     }
-}
+  }
 
-.header-light {
-    animation: ChangeColor 2s linear forwards;
-    background-color: "#e5e5e5";
-}
-
-.header-dark {
-    animation: ChangeColor1 2s linear forwards;
-    background-color: "#262626";
-}
-
-.terminal {
-    font-family: 'Ubuntu Mono', monospace;
-    height: 50vh;
-}
-
-
-
-
-
-
-
-
-@keyframes ChangeColor {
-    0% {
-        background-color: "#262626";
+  .dark & {
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(75, 85, 99, 0.4); // Tailwind gray-600 equivalent
+      
+      &:hover {
+        background-color: rgba(75, 85, 99, 0.6);
+      }
     }
-
-    100% {
-        background-color: "#e5e5e5";
-    }
-}
-
-@keyframes ChangeColor1 {
-    0% {
-        background-color: "#e5e5e5";
-    }
-
-    100% {
-        background-color: "#262626";
-    }
+  }
 }
